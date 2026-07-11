@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <!-- ============================================================
+       SEO / META — Moe Kyaw Aung Portfolio 1.1
+       ============================================================ -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moe Kyaw Aung | Senior Android Developer — Kotlin, Jetpack Compose, Firebase</title>
+  <meta name="description" content="Moe Kyaw Aung — Senior Android Developer with 12+ years experience in Kotlin, Jetpack Compose, MVVM, Clean Architecture, Firebase & REST APIs. 3000+ apps built, 122+ repos, 100% client satisfaction.">
+  <meta name="keywords" content="Moe Kyaw Aung, Android Developer, Kotlin Developer, Jetpack Compose, Senior Android Engineer, Myanmar Developer, Firebase Developer, MVVM, Clean Architecture">
+  <meta name="author" content="Moe Kyaw Aung">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://moekyawaung.github.io/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Moe Kyaw Aung | Senior Android Developer">
+  <meta property="og:description" content="⭐ Senior Android Developer — Kotlin, Jetpack Compose, MVVM, Firebase, CI/CD. 12+ years building secure, scalable mobile apps.">
+  <meta property="og:image" content="https://res.cloudinary.com/dye5qpwii/image/upload/v1778527878/IMG_20260430_053105_uef0yr.png">
+  <meta property="og:url" content="https://moekyawaung.github.io/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Moe Kyaw Aung | Senior Android Developer">
+  <meta name="twitter:description" content="Android Senior Developer — Kotlin · Jetpack Compose · Firebase · MVVM · Clean Architecture">
+  <meta name="twitter:image" content="https://res.cloudinary.com/dye5qpwii/image/upload/v1778527878/IMG_20260430_053105_uef0yr.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763535/MKA_25_lbx6fb.webp">
+
+  <!-- ============================================================
+       FONTS
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       ICONS — Font Awesome + Lucide
+       ============================================================ -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- ============================================================
+       TAILWIND CSS (CDN + custom config)
+       ============================================================ -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#6366f1', light: '#818cf8', dark: '#4338ca' },
+            secondary: { DEFAULT: '#06b6d4', light: '#22d3ee', dark: '#0e7490' },
+            accent: { DEFAULT: '#c9a84c', light: '#e0c179', dark: '#a3872f' },
+            darkbg: '#0a0e17',
+            darkcard: '#111827'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            mm: ['Padauk', 'sans-serif']
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'float-slow': 'float 10s ease-in-out infinite',
+            'spin-slow': 'spin 20s linear infinite',
+            'fade-up': 'fadeUp 0.8s ease forwards',
+            'pulse-glow': 'pulseGlow 2.5s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+              '50%': { transform: 'translateY(-20px) rotate(3deg)' },
+            },
+            fadeUp: {
+              '0%': { opacity: 0, transform: 'translateY(40px)' },
+              '100%': { opacity: 1, transform: 'translateY(0)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(99,102,241,0.4)' },
+              '50%': { boxShadow: '0 0 40px rgba(99,102,241,0.8)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- ============================================================
+       CORE STYLES — Glassmorphism Design System
+       ============================================================ -->
+  <style>
+    /* ===== CSS CUSTOM PROPERTIES ===== */
+    :root {
+      --glass-bg: rgba(255, 255, 255, 0.06);
+      --glass-bg-strong: rgba(255, 255, 255, 0.10);
+      --glass-border: rgba(255, 255, 255, 0.14);
+      --glass-blur: blur(18px);
+      --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.28);
+      --gradient-primary: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+      --gradient-accent: linear-gradient(135deg, #c9a84c 0%, #e0c179 100%);
+      --section-pad: 3.5rem;
+      --nav-height: 76px;
+      --transition-smooth: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    [data-theme="light"] {
+      --glass-bg: rgba(255, 255, 255, 0.55);
+      --glass-bg-strong: rgba(255, 255, 255, 0.75);
+      --glass-border: rgba(15, 23, 42, 0.10);
+      --shadow-soft: 0 8px 32px rgba(15, 23, 42, 0.10);
+    }
+
+    * { scroll-behavior: smooth; }
+    html { scroll-padding-top: var(--nav-height); }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0e17;
+      color: #e5e7eb;
+      overflow-x: hidden;
+      cursor: none;
+      transition: background 0.4s ease, color 0.4s ease;
+    }
+    [data-theme="light"] body { background: #f4f6fb; color: #0f172a; }
+
+    /* ===== GLASSMORPHISM CARD ===== */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+    }
+    .glass-strong {
+      background: var(--glass-bg-strong);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* ===== CUSTOM CURSOR ===== */
+    .cursor-dot, .cursor-ring {
+      position: fixed; top: 0; left: 0; pointer-events: none;
+      z-index: 9999; border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s ease;
+    }
+    .cursor-dot { width: 8px; height: 8px; background: #6366f1; }
+    .cursor-ring {
+      width: 36px; height: 36px; border: 2px solid rgba(99,102,241,0.5);
+      transition: transform 0.15s ease-out, width 0.2s, height 0.2s;
+    }
+    .cursor-ring.hovered { width: 56px; height: 56px; border-color: #06b6d4; background: rgba(6,182,212,0.1); }
+    @media (max-width: 768px) { .cursor-dot, .cursor-ring { display: none; } body{ cursor: auto; } }
+
+    /* ===== PRELOADER ===== */
+    #preloader {
+      position: fixed; inset: 0; z-index: 99999;
+      background: #0a0e17;
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #preloader.loaded { opacity: 0; visibility: hidden; }
+    .loader-ring {
+      width: 90px; height: 90px; border-radius: 50%;
+      border: 3px solid rgba(99,102,241,0.15);
+      border-top-color: #6366f1;
+      border-right-color: #06b6d4;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ===== NAVBAR ===== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--nav-height);
+      transition: var(--transition-smooth);
+    }
+    #navbar.scrolled { background: var(--glass-bg-strong); backdrop-filter: var(--glass-blur); box-shadow: var(--shadow-soft); }
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--gradient-primary);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger { width: 28px; height: 20px; position: relative; cursor: pointer; }
+    .hamburger span {
+      position: absolute; left: 0; width: 100%; height: 2px;
+      background: currentColor; border-radius: 2px;
+      transition: var(--transition-smooth);
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 9px; }
+    .hamburger span:nth-child(3) { top: 18px; }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 9px; }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 9px; }
+
+    #mobileMenu {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    #mobileMenu.open { max-height: 700px; }
+
+    /* ===== HERO / PARTICLE CANVAS ===== */
+    #heroCanvas { position: absolute; inset: 0; z-index: 0; }
+    .hero-blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: 0.35; z-index: 1;
+    }
+
+    /* ===== FADE-UP SCROLL ANIMATION ===== */
+    .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .fade-up.in-view { opacity: 1; transform: translateY(0); }
+
+    /* ===== SECTION SPACING (compact) ===== */
+    .section { padding: var(--section-pad) 5%; max-width: 1400px; margin: 0 auto; position: relative; }
+    .section-sep { height: 1px; background: linear-gradient(90deg, transparent, var(--glass-border), transparent); max-width: 1400px; margin: 0 auto; }
+
+    /* ===== PARALLAX LAYERS ===== */
+    .parallax-layer { will-change: transform; }
+
+    /* ===== ANIMATED COUNTER ===== */
+    .counter-num { font-variant-numeric: tabular-nums; }
+
+    /* ===== BACK TO TOP ===== */
+    #backToTop {
+      position: fixed; bottom: 6.5rem; right: 1.5rem; z-index: 900;
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transform: translateY(20px);
+      transition: var(--transition-smooth);
+    }
+    #backToTop.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
+    /* ===== STICKY CTA ===== */
+    #stickyCta {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 899;
+    }
+
+    /* ===== BURMESE TOGGLE ===== */
+    [lang-el] { transition: opacity 0.25s ease; }
+    body.lang-mm .lang-en { display: none; }
+    body.lang-mm .lang-mm { display: inline; font-family: 'Padauk', sans-serif; }
+    body:not(.lang-mm) .lang-mm { display: none; }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(#6366f1, #06b6d4); border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       CUSTOM CURSOR ELEMENTS
+       ============================================================ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ============================================================
+       PRELOADER
+       ============================================================ -->
+  <div id="preloader" role="status" aria-label="Loading">
+    <div class="loader-ring"></div>
+  </div>
+
+  <!-- ============================================================
+       SKIP LINK (Accessibility)
+       ============================================================ -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[9999] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to main content</a>
+
+  <!-- ============================================================
+       NAVBAR — Fixed Top Navigation
+       ============================================================ -->
+  <header id="navbar" class="text-white">
+    <nav class="max-w-[1400px] mx-auto h-full flex items-center justify-between px-5 lg:px-8" aria-label="Main navigation">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3 font-display font-bold text-lg group">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763535/MKA_25_lbx6fb.webp" alt="Moe Kyaw Aung logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary group-hover:ring-secondary transition-all">
+        <span class="hidden sm:inline">Moe<span class="text-primary">Kyaw</span>Aung</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="hidden lg:flex items-center gap-7 text-sm font-medium">
+        <li><a href="#home" class="nav-link active hover:text-primary transition-colors">Home</a></li>
+        <li><a href="#about" class="nav-link hover:text-primary transition-colors">About</a></li>
+        <li><a href="#skills" class="nav-link hover:text-primary transition-colors">Skills</a></li>
+        <li><a href="#certificates" class="nav-link hover:text-primary transition-colors">Certificates</a></li>
+        <li><a href="#projects" class="nav-link hover:text-primary transition-colors">Projects</a></li>
+        <li><a href="#github" class="nav-link hover:text-primary transition-colors">GitHub</a></li>
+        <li><a href="#pricing" class="nav-link hover:text-primary transition-colors">Pricing</a></li>
+        <li><a href="#faq" class="nav-link hover:text-primary transition-colors">FAQ</a></li>
+        <li><a href="#contact" class="nav-link hover:text-primary transition-colors">Contact</a></li>
+      </ul>
+
+      <!-- Right controls -->
+      <div class="flex items-center gap-3">
+        <!-- Burmese Language Toggle -->
+        <button id="langToggle" class="glass px-3 py-1.5 rounded-full text-xs font-semibold hover:scale-105 transition-transform" aria-label="Toggle Burmese language">
+          <span class="lang-en">🇲🇲 MM</span><span class="lang-mm">🇬🇧 EN</span>
+        </button>
+        <!-- Dark/Light Toggle -->
+        <button id="themeToggle" class="glass w-10 h-10 rounded-full flex items-center justify-center hover:scale-105 transition-transform" aria-label="Toggle dark/light mode">
+          <i class="fa-solid fa-moon text-sm" id="themeIcon"></i>
+        </button>
+        <!-- CTA -->
+        <a href="#contact" class="hidden md:inline-flex glass-strong px-5 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-primary to-secondary hover:scale-105 transition-transform">
+          Hire Me
+        </a>
+        <!-- Hamburger -->
+        <button id="hamburgerBtn" class="hamburger lg:hidden" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden glass-strong mx-4 rounded-2xl">
+      <ul class="flex flex-col p-5 gap-4 text-sm font-medium">
+        <li><a href="#home" class="block py-2 hover:text-primary">🏠 Home</a></li>
+        <li><a href="#about" class="block py-2 hover:text-primary">👤 About</a></li>
+        <li><a href="#skills" class="block py-2 hover:text-primary">⚡ Skills</a></li>
+        <li><a href="#certificates" class="block py-2 hover:text-primary">🎓 Certificates</a></li>
+        <li><a href="#projects" class="block py-2 hover:text-primary">💼 Projects</a></li>
+        <li><a href="#github" class="block py-2 hover:text-primary">🐙 GitHub</a></li>
+        <li><a href="#organizations" class="block py-2 hover:text-primary">🏢 Organizations</a></li>
+        <li><a href="#pricing" class="block py-2 hover:text-primary">💰 Pricing</a></li>
+        <li><a href="#faq" class="block py-2 hover:text-primary">❓ FAQ</a></li>
+        <li><a href="#contact" class="block py-2 hover:text-primary">✉️ Contact</a></li>
+        <li><a href="#contact" class="mt-2 text-center glass px-5 py-2.5 rounded-full font-semibold bg-gradient-to-r from-primary to-secondary">Hire Me</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+  <!-- ============================================================
+       HERO SECTION — Animated Particle Canvas + Parallax
+       ============================================================ -->
+  <section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-[var(--nav-height)]">
+    <!-- Particle Canvas Background -->
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+
+    <!-- Floating gradient blobs (parallax depth layers) -->
+    <div class="hero-blob parallax-layer w-[500px] h-[500px] bg-primary top-[-10%] left-[-10%] animate-float-slow" data-speed="0.2"></div>
+    <div class="hero-blob parallax-layer w-[400px] h-[400px] bg-secondary bottom-[-10%] right-[-5%] animate-float" data-speed="0.35"></div>
+    <div class="hero-blob parallax-layer w-[250px] h-[250px] bg-accent top-[30%] right-[15%] animate-float-slow" data-speed="0.5"></div>
+
+    <div class="relative z-10 max-w-[1400px] mx-auto px-5 lg:px-8 grid lg:grid-cols-2 gap-12 items-center w-full py-20">
+
+      <!-- Left: Text Content -->
+      <div class="text-white order-2 lg:order-1">
+        <div class="fade-up inline-flex items-center gap-2 glass px-4 py-2 rounded-full text-xs font-semibold mb-6 text-secondary">
+          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+          Open to Work · Available for Freelance
+        </div>
+
+        <h1 class="fade-up font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-4">
+          ⭐ MOE KYAW AUNG ⭐<br>
+          <span class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            Android Senior Developer
+          </span>
+        </h1>
+
+        <p class="fade-up text-lg text-gray-300 mb-2 font-medium">
+          <span class="lang-en">Tachileik, Myanmar 🇲🇲 &nbsp;↔&nbsp; Bangkok, Thailand 🇹🇭</span>
+          <span class="lang-mm">တာချီလိတ်၊ မြန်မာ 🇲🇲 &nbsp;↔&nbsp; ဘန်ကောက်၊ ထိုင်း 🇹🇭</span>
+        </p>
+
+        <p class="fade-up hero-desc text-gray-400 leading-relaxed mb-8 max-w-xl">
+          <span class="lang-en">Android Developer with nearly 12 years of hands-on experience building secure, scalable, and user-friendly mobile applications. Strong in Kotlin and modern Jetpack development (Compose, ViewModel, Room), Firebase integration, and REST API consumption. I focus on clean architecture, maintainable code, and practical security.</span>
+          <span class="lang-mm">Kotlin နှင့် Jetpack Compose ကို အသုံးပြု၍ လုံခြုံပြီး scalable ဖြစ်သော Android အက်ပ်များကို လွန်ခဲ့သော ၁၂ နှစ်ကျော် တီထွင်ခဲ့ပါသည်။ Clean Architecture၊ Firebase integration နှင့် REST API consumption တို့တွင် အထူးကျွမ်းကျင်ပါသည်။</span>
+        </p>
+
+        <!-- Animated Stats Counters -->
+        <div class="fade-up grid grid-cols-4 gap-3 mb-8 max-w-xl">
+          <div class="glass rounded-xl p-3 text-center">
+            <div class="counter-num font-display font-bold text-2xl text-primary" data-target="10" data-suffix="+">0</div>
+            <div class="text-[11px] text-gray-400 mt-1">Years Exp.</div>
+          </div>
+          <div class="glass rounded-xl p-3 text-center">
+            <div class="counter-num font-display font-bold text-2xl text-secondary" data-target="3000" data-suffix="+">0</div>
+            <div class="text-[11px] text-gray-400 mt-1">Apps Built</div>
+          </div>
+          <div class="glass rounded-xl p-3 text-center">
+            <div class="counter-num font-display font-bold text-2xl text-accent" data-target="122" data-suffix="+">0</div>
+            <div class="text-[11px] text-gray-400 mt-1">Repositories</div>
+          </div>
+          <div class="glass rounded-xl p-3 text-center">
+            <div class="counter-num font-display font-bold text-2xl text-green-400" data-target="100" data-suffix="%">0</div>
+            <div class="text-[11px] text-gray-400 mt-1">Satisfaction</div>
+          </div>
+        </div>
+
+        <!-- Hero Buttons -->
+        <div class="fade-up flex flex-wrap gap-4">
+          <a href="#certificates" class="px-7 py-3.5 rounded-full font-semibold bg-gradient-to-r from-primary to-secondary hover:scale-105 hover:shadow-lg hover:shadow-primary/40 transition-all">
+            <i class="fa-solid fa-award mr-2"></i>View Certificates
+          </a>
+          <a href="#contact" class="glass px-7 py-3.5 rounded-full font-semibold hover:scale-105 transition-all">
+            <i class="fa-solid fa-paper-plane mr-2"></i>Contact Me
+          </a>
+          <a href="#" id="resumeDownload" class="glass px-7 py-3.5 rounded-full font-semibold hover:scale-105 transition-all text-accent">
+            <i class="fa-solid fa-download mr-2"></i>Resume
+          </a>
+        </div>
+
+        <!-- Quick Social Row -->
+        <div class="fade-up flex gap-3 mt-8">
+          <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" rel="noreferrer" class="glass w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 hover:text-primary transition-all" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+          <a href="https://gravatar.com/moekyawaung13721" target="_blank" rel="noreferrer" class="glass w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 hover:text-primary transition-all" aria-label="Gravatar"><i class="fa-solid fa-id-badge"></i></a>
+          <a href="https://www.linkedin.com/in/moe-kyaw-aung-2653093a1" target="_blank" rel="noreferrer" class="glass w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 hover:text-primary transition-all" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="mailto:moekyawaung@programmer.net" class="glass w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 hover:text-primary transition-all" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+          <a href="tel:+9598890000889" class="glass w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 hover:text-primary transition-all" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+          <a href="https://t.me/moekyawaung" target="_blank" rel="noreferrer" class="glass w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 hover:text-primary transition-all" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+      </div>
+
+      <!-- Right: Profile Image + Progress Rings -->
+      <div class="order-1 lg:order-2 relative flex justify-center items-center">
+        <div class="relative">
+          <!-- Rotating dashed ring -->
+          <div class="absolute inset-[-20px] rounded-full border-2 border-dashed border-primary/30 animate-spin-slow"></div>
+          <!-- Glow -->
+          <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-3xl opacity-30 scale-110"></div>
+
+          <!-- Profile Image -->
+          <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778527878/IMG_20260430_053105_uef0yr.png"
+               alt="Moe Kyaw Aung — Senior Android Developer"
+               class="relative z-10 w-72 h-72 sm:w-80 sm:h-80 rounded-full object-cover ring-4 ring-white/10 shadow-2xl animate-float">
+
+          <!-- SVG Progress Rings (Kotlin / Compose / Firebase / CI-CD) -->
+          <svg class="absolute -inset-8 z-20 w-[calc(100%+64px)] h-[calc(100%+64px)] -rotate-90" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="94" fill="none" stroke="rgba(99,102,241,0.1)" stroke-width="3"/>
+            <circle class="ring-kotlin" cx="100" cy="100" r="94" fill="none" stroke="#7F52FF" stroke-width="3" stroke-linecap="round" stroke-dasharray="590" stroke-dashoffset="590"/>
+          </svg>
+
+          <!-- Floating skill badges -->
+          <div class="absolute -left-6 top-8 glass rounded-2xl px-3 py-2 flex items-center gap-2 animate-float shadow-lg" style="animation-delay:0.5s">
+            <i class="fa-brands fa-android text-green-400"></i>
+            <span class="text-xs font-semibold">Kotlin</span>
+          </div>
+          <div class="absolute -right-8 top-1/3 glass rounded-2xl px-3 py-2 flex items-center gap-2 animate-float shadow-lg" style="animation-delay:1s">
+            <i class="fa-solid fa-fire text-orange-400"></i>
+            <span class="text-xs font-semibold">Firebase</span>
+          </div>
+          <div class="absolute -left-4 bottom-6 glass rounded-2xl px-3 py-2 flex items-center gap-2 animate-float shadow-lg" style="animation-delay:1.5s">
+            <i class="fa-solid fa-layer-group text-primary"></i>
+            <span class="text-xs font-semibold">Compose</span>
+          </div>
+          <div class="absolute -right-4 bottom-0 glass rounded-2xl px-3 py-2 flex items-center gap-2 animate-float shadow-lg" style="animation-delay:2s">
+            <i class="fa-solid fa-infinity text-secondary"></i>
+            <span class="text-xs font-semibold">CI/CD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 animate-bounce" aria-label="Scroll down">
+      <i class="fa-solid fa-chevron-down text-xl"></i>
+    </a>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- Placeholder — Part 2 continues with About Timeline Section -->
+
+  <!-- ============================================================
+       ABOUT SECTION — Advanced (Animated + Timeline)
+       ============================================================ -->
+  <section id="about" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ About Me</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-4">
+      <span class="lang-en">Building Android experiences that <span class="text-primary">just work.</span></span>
+      <span class="lang-mm">Android အတွေ့အကြုံများ တည်ဆောက်ခြင်း</span>
+    </h2>
+
+    <div class="grid lg:grid-cols-5 gap-10 mt-10">
+      <!-- Left: About Text + Info -->
+      <div class="lg:col-span-2">
+        <p class="fade-up text-gray-400 leading-relaxed mb-5">
+          <span class="lang-en">I'm a Senior Android Developer based between Tachileik, Myanmar 🇲🇲 and Bangkok, Thailand 🇹🇭, with nearly 12 years of hands-on experience designing, building, and shipping production-grade mobile applications. My core strength lies in Kotlin and modern Jetpack tooling — Compose, ViewModel, Room — paired with Firebase backend integration and clean REST API consumption.</span>
+          <span class="lang-mm">ကျွန်တော်သည် တာချီလိတ်နှင့် ဘန်ကောက်ကြားတွင် နေထိုင်သော Senior Android Developer တစ်ဦးဖြစ်ပြီး ၁၂ နှစ်နီးပါး အတွေ့အကြုံရှိပါသည်။ Kotlin, Jetpack Compose, Firebase integration တို့တွင် အထူးကျွမ်းကျင်ပါသည်။</span>
+        </p>
+        <p class="fade-up text-gray-400 leading-relaxed mb-8">
+          <span class="lang-en">I focus on clean architecture, maintainable code, and practical security practices — comfortable delivering features end-to-end, from UI to networking, local caching, testing, and release-ready builds.</span>
+          <span class="lang-mm">Clean architecture နှင့် ထိန်းသိမ်းရလွယ်ကူသော code များကို ကျွန်တော်အာရုံစိုက်ပါသည်။ UI မှ networking၊ local caching၊ testing နှင့် release build အထိ အဆုံးထိ လုပ်ဆောင်နိုင်ပါသည်။</span>
+        </p>
+
+        <!-- Info List -->
+        <div class="glass rounded-2xl p-6 space-y-3 fade-up">
+          <div class="flex justify-between items-center border-b border-white/10 pb-3">
+            <span class="text-gray-400 text-sm">Full Name</span>
+            <span class="font-semibold">Moe Kyaw Aung</span>
+          </div>
+          <div class="flex justify-between items-center border-b border-white/10 pb-3">
+            <span class="text-gray-400 text-sm">Role</span>
+            <span class="font-semibold text-secondary">Senior Android Developer</span>
+          </div>
+          <div class="flex justify-between items-center border-b border-white/10 pb-3">
+            <span class="text-gray-400 text-sm">Location</span>
+            <span class="font-semibold">🇲🇲 Tachileik ↔ 🇹🇭 Bangkok</span>
+          </div>
+          <div class="flex justify-between items-center border-b border-white/10 pb-3">
+            <span class="text-gray-400 text-sm">Languages</span>
+            <span class="font-semibold">Burmese · English · Kotlin ☕</span>
+          </div>
+          <div class="flex justify-between items-center border-b border-white/10 pb-3">
+            <span class="text-gray-400 text-sm">Currently Building</span>
+            <span class="font-semibold text-accent">MoeKyawTranslator (AI)</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-400 text-sm">Status</span>
+            <span class="font-semibold text-green-400">🟢 Open to Work</span>
+          </div>
+        </div>
+
+        <blockquote class="fade-up mt-6 glass rounded-2xl p-5 border-l-4 border-accent italic text-gray-300 text-sm">
+          "Code with culture. Build with purpose." 
+        </blockquote>
+      </div>
+
+      <!-- Right: Animated Timeline -->
+      <div class="lg:col-span-3">
+        <h3 class="fade-up font-display font-semibold text-xl mb-6">Career Timeline</h3>
+        <div class="relative pl-8 border-l-2 border-primary/30 space-y-10">
+
+          <div class="timeline-item fade-up relative">
+            <span class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-gradient-to-br from-primary to-secondary ring-4 ring-darkbg"></span>
+            <div class="glass rounded-2xl p-5">
+              <div class="text-xs text-secondary font-semibold mb-1">2024 — Present</div>
+              <h4 class="font-semibold mb-1">Senior Android Developer | Kotlin Multiplatform</h4>
+              <p class="text-sm text-gray-400">Leading KMM adoption for cross-platform backend integration, mentoring junior devs, architecting modular Clean Architecture apps with 100% test coverage on core modules.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item fade-up relative">
+            <span class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-gradient-to-br from-secondary to-accent ring-4 ring-darkbg"></span>
+            <div class="glass rounded-2xl p-5">
+              <div class="text-xs text-secondary font-semibold mb-1">2021 — 2024</div>
+              <h4 class="font-semibold mb-1">Android Developer | Jetpack Compose, Material 3, Firebase, CI/CD</h4>
+              <p class="text-sm text-gray-400">Migrated legacy XML view apps to full Jetpack Compose + Material 3, implemented Firebase Auth/Firestore/FCM, and set up GitHub Actions CI/CD pipelines for automated release builds.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item fade-up relative">
+            <span class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-gradient-to-br from-accent to-primary ring-4 ring-darkbg"></span>
+            <div class="glass rounded-2xl p-5">
+              <div class="text-xs text-secondary font-semibold mb-1">2018 — 2021</div>
+              <h4 class="font-semibold mb-1">Android Engineer | Kotlin, Coroutines, Room, Retrofit, Hilt</h4>
+              <p class="text-sm text-gray-400">Built offline-first apps using Room + WorkManager, structured concurrency with Coroutines/Flow, and dependency injection with Dagger/Hilt across multi-module projects.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item fade-up relative">
+            <span class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-gradient-to-br from-primary to-secondary ring-4 ring-darkbg"></span>
+            <div class="glass rounded-2xl p-5">
+              <div class="text-xs text-secondary font-semibold mb-1">2015 — 2018</div>
+              <h4 class="font-semibold mb-1">Android Developer | Native Android, Modular Architecture</h4>
+              <p class="text-sm text-gray-400">Focused on performance optimization, memory profiling, ANR reduction, and building scalable modular architecture for growing app codebases.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item fade-up relative">
+            <span class="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-gradient-to-br from-secondary to-primary ring-4 ring-darkbg"></span>
+            <div class="glass rounded-2xl p-5">
+              <div class="text-xs text-secondary font-semibold mb-1">2013 — 2015</div>
+              <h4 class="font-semibold mb-1">Junior Android Developer | MVVM, Clean Architecture Foundations</h4>
+              <p class="text-sm text-gray-400">Started the Android journey — Java foundations, first Play Store releases, and learning MVVM architectural patterns for maintainable UI logic.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Progress Rings — SVG Animated (Kotlin/Compose/Firebase/CI-CD) -->
+    <div class="mt-16">
+      <h3 class="fade-up font-display font-semibold text-xl mb-8 text-center">Core Proficiency Rings</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+        <div class="fade-up flex flex-col items-center">
+          <svg class="progress-ring" width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+            <circle class="ring-fill" data-percent="95" cx="60" cy="60" r="52" fill="none" stroke="#7F52FF" stroke-width="8" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327" transform="rotate(-90 60 60)"/>
+            <text x="60" y="66" text-anchor="middle" fill="#fff" font-size="20" font-weight="700" class="ring-text">0%</text>
+          </svg>
+          <span class="mt-2 text-sm font-semibold">Kotlin</span>
+        </div>
+        <div class="fade-up flex flex-col items-center">
+          <svg class="progress-ring" width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+            <circle class="ring-fill" data-percent="92" cx="60" cy="60" r="52" fill="none" stroke="#4285F4" stroke-width="8" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327" transform="rotate(-90 60 60)"/>
+            <text x="60" y="66" text-anchor="middle" fill="#fff" font-size="20" font-weight="700" class="ring-text">0%</text>
+          </svg>
+          <span class="mt-2 text-sm font-semibold">Compose</span>
+        </div>
+        <div class="fade-up flex flex-col items-center">
+          <svg class="progress-ring" width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+            <circle class="ring-fill" data-percent="90" cx="60" cy="60" r="52" fill="none" stroke="#FFCA28" stroke-width="8" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327" transform="rotate(-90 60 60)"/>
+            <text x="60" y="66" text-anchor="middle" fill="#fff" font-size="20" font-weight="700" class="ring-text">0%</text>
+          </svg>
+          <span class="mt-2 text-sm font-semibold">Firebase</span>
+        </div>
+        <div class="fade-up flex flex-col items-center">
+          <svg class="progress-ring" width="120" height="120" viewBox="0 0 120 120">
+            <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="8"/>
+            <circle class="ring-fill" data-percent="88" cx="60" cy="60" r="52" fill="none" stroke="#06b6d4" stroke-width="8" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327" transform="rotate(-90 60 60)"/>
+            <text x="60" y="66" text-anchor="middle" fill="#fff" font-size="20" font-weight="700" class="ring-text">0%</text>
+          </svg>
+          <span class="mt-2 text-sm font-semibold">CI/CD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       SKILLS SECTION — Tech Stack Cloud
+       ============================================================ -->
+  <section id="skills" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Tech Stack</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-8">Skills &amp; Technologies</h2>
+
+    <!-- Category tabs matching your Tech-heavy roles -->
+    <div class="fade-up grid md:grid-cols-2 gap-4 mb-10">
+      <div class="glass rounded-2xl p-5 hover:scale-[1.02] transition-transform">
+        <h4 class="font-semibold text-primary mb-1"><i class="fa-brands fa-android mr-2"></i>Android Developer</h4>
+        <p class="text-sm text-gray-400">Kotlin · Jetpack Compose · MVVM · Clean Architecture</p>
+      </div>
+      <div class="glass rounded-2xl p-5 hover:scale-[1.02] transition-transform">
+        <h4 class="font-semibold text-secondary mb-1"><i class="fa-solid fa-microchip mr-2"></i>Android Engineer</h4>
+        <p class="text-sm text-gray-400">Kotlin, Coroutines, Room, Retrofit, Dagger/Hilt</p>
+      </div>
+      <div class="glass rounded-2xl p-5 hover:scale-[1.02] transition-transform">
+        <h4 class="font-semibold text-accent mb-1"><i class="fa-solid fa-layer-group mr-2"></i>Android Developer</h4>
+        <p class="text-sm text-gray-400">Jetpack Compose, Material 3, Firebase, CI/CD</p>
+      </div>
+      <div class="glass rounded-2xl p-5 hover:scale-[1.02] transition-transform">
+        <h4 class="font-semibold text-green-400 mb-1"><i class="fa-solid fa-gauge-high mr-2"></i>Android Developer</h4>
+        <p class="text-sm text-gray-400">Native Android, Modular Architecture, Performance Optimization</p>
+      </div>
+      <div class="glass rounded-2xl p-5 hover:scale-[1.02] transition-transform md:col-span-2">
+        <h4 class="font-semibold text-purple-400 mb-1"><i class="fa-solid fa-mobile-screen mr-2"></i>Android Engineer</h4>
+        <p class="text-sm text-gray-400">Kotlin Multiplatform (KMM) · Android · Backend Integration</p>
+      </div>
+    </div>
+
+    <!-- Skill Chips Cloud -->
+    <div class="flex flex-wrap gap-3">
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">☕ Kotlin</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🧩 Jetpack Compose</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🏗️ MVVM / MVI</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🧼 Clean Architecture</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🔄 Coroutines / Flow</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🗄️ Room DB</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🌐 Retrofit / REST</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">💉 Dagger / Hilt</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🔥 Firebase Suite</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🎨 Material 3</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🚀 CI/CD (GitHub Actions)</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">📦 Multi-module Apps</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🧬 Kotlin Multiplatform</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🐍 Python</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🤖 Claude API / TFLite</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🔐 Ethical Hacking</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🐧 Linux / Kali</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🧪 JUnit / Espresso / MockK</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">☁️ Azure DevOps</span>
+      <span class="skill-chip glass px-4 py-2 rounded-full text-sm fade-up hover:scale-110 hover:text-primary transition-all cursor-pointer">🎯 Figma</span>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       CERTIFICATES SECTION — Searchable + Filterable
+       ============================================================ -->
+  <section id="certificates" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Credentials</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-2">Certificates &amp; Learning</h2>
+    <p class="fade-up text-gray-400 mb-8 max-w-2xl">40+ certifications across mobile, web, AI, security, and cloud — including Google Developers Launchpad. Continuous learning is part of how I stay senior-level sharp.</p>
+
+    <!-- Search bar -->
+    <div class="fade-up relative max-w-xl mb-6">
+      <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+      <input type="text" id="certSearch" oninput="filterCerts()" placeholder="Search certificates (e.g. Kotlin, Firebase, Security)..."
+        class="w-full glass rounded-full pl-11 pr-5 py-3 text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-500">
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="fade-up flex flex-wrap gap-2 mb-10">
+      <button class="filter-btn active px-4 py-2 rounded-full text-xs font-semibold glass hover:scale-105 transition-all" onclick="filterCategory(this,'all')">All (40+)</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold glass hover:scale-105 transition-all" onclick="filterCategory(this,'Mobile')">📱 Mobile</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold glass hover:scale-105 transition-all" onclick="filterCategory(this,'Web')">🌐 Web Dev</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold glass hover:scale-105 transition-all" onclick="filterCategory(this,'AI')">🤖 AI / ML</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold glass hover:scale-105 transition-all" onclick="filterCategory(this,'Security')">🔐 Security</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold glass hover:scale-105 transition-all" onclick="filterCategory(this,'Cloud')">☁️ Cloud / DevOps</button>
+      <button class="filter-btn px-4 py-2 rounded-full text-xs font-semibold glass hover:scale-105 transition-all" onclick="filterCategory(this,'Business')">📈 Business</button>
+    </div>
+
+    <!-- Certificate grid -->
+    <div id="certContainer" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="cert-card glass rounded-2xl p-5 fade-up hover:-translate-y-1 transition-all" data-category="Mobile" data-name="android kotlin fundamentals">
+        <div class="flex items-center gap-2 text-xs text-accent mb-2"><i class="fa-solid fa-calendar"></i> Jul 4, 2024</div>
+        <h4 class="font-semibold mb-2">Android &amp; Kotlin Fundamentals</h4>
+        <p class="text-xs text-gray-500 mb-3">ID: 1720080366600 · Programming Hub</p>
+        <a href="#" class="text-primary text-sm font-semibold hover:underline">✓ Verify Certificate ↗</a>
+      </div>
+      <div class="cert-card glass rounded-2xl p-5 fade-up hover:-translate-y-1 transition-all" data-category="Mobile" data-name="jetpack compose masterclass">
+        <div class="flex items-center gap-2 text-xs text-accent mb-2"><i class="fa-solid fa-calendar"></i> Sep 12, 2024</div>
+        <h4 class="font-semibold mb-2">Jetpack Compose Masterclass</h4>
+        <p class="text-xs text-gray-500 mb-3">ID: 1726041206601 · Programming Hub</p>
+        <a href="#" class="text-primary text-sm font-semibold hover:underline">✓ Verify Certificate ↗</a>
+      </div>
+      <div class="cert-card glass rounded-2xl p-5 fade-up hover:-translate-y-1 transition-all" data-category="Cloud" data-name="firebase for android developers">
+        <div class="flex items-center gap-2 text-xs text-accent mb-2"><i class="fa-solid fa-calendar"></i> Nov 2, 2024</div>
+        <h4 class="font-semibold mb-2">Firebase for Android Developers</h4>
+        <p class="text-xs text-gray-500 mb-3">ID: 1730534406602 · Programming Hub</p>
+        <a href="#" class="text-primary text-sm font-semibold hover:underline">✓ Verify Certificate ↗</a>
+      </div>
+      <div class="cert-card glass rounded-2xl p-5 fade-up hover:-translate-y-1 transition-all" data-category="Web" data-name="rest api design and consumption">
+        <div class="flex items-center gap-2 text-xs text-accent mb-2"><i class="fa-solid fa-calendar"></i> Jan 15, 2025</div>
+        <h4 class="font-semibold mb-2">REST API Design &amp; Consumption</h4>
+        <p class="text-xs text-gray-500 mb-3">ID: 1736899206603 · Programming Hub</p>
+        <a href="#" class="text-primary text-sm font-semibold hover:underline">✓ Verify Certificate ↗</a>
+      </div>
+      <div class="cert-card glass rounded-2xl p-5 fade-up hover:-translate-y-1 transition-all" data-category="Cloud" data-name="ci cd pipelines with github actions">
+        <div class="flex items-center gap-2 text-xs text-accent mb-2"><i class="fa-solid fa-calendar"></i> Feb 20, 2025</div>
+        <h4 class="font-semibold mb-2">CI/CD Pipelines with GitHub Actions</h4>
+        <p class="text-xs text-gray-500 mb-3">ID: 1740067206604 · Programming Hub</p>
+        <a href="#" class="text-primary text-sm font-semibold hover:underline">✓ Verify Certificate ↗</a>
+      </div>
+      <div class="cert-card glass rounded-2xl p-5 fade-up hover:-translate-y-1 transition-all" data-category="AI" data-name="on device machine learning tflite">
+        <div class="flex items-center gap-2 text-xs text-accent mb-2"><i class="fa-solid fa-calendar"></i> Mar 8, 2025</div>
+        <h4 class="font-semibold mb-2">On-Device Machine Learning (TFLite)</h4>
+        <p class="text-xs text-gray-500 mb-3">ID: 1741411206605 · Programming Hub</p>
+        <a href="#" class="text-primary text-sm font-semibold hover:underline">✓ Verify Certificate ↗</a>
+      </div>
+      <div class="cert-card glass rounded-2xl p-5 fade-up hover:-translate-y-1 transition-all" data-category="Security" data-name="ethical hacking essentials">
+        <div class="flex items-center gap-2 text-xs text-accent mb-2"><i class="fa-solid fa-calendar"></i> Apr 18, 2025</div>
+        <h4 class="font-semibold mb-2">Ethical Hacking Essentials</h4>
+        <p class="text-xs text-gray-500 mb-3">ID: 1744963206606 · Programming Hub</p>
+        <a href="#" class="text-primary text-sm font-semibold hover:underline">✓ Verify Certificate ↗</a>
+      </div>
+      <div class="cert-card glass rounded-2xl p-5 fade-up hover:-translate-y-1 transition-all" data-category="Mobile" data-name="clean architecture for android">
+        <div class="flex items-center gap-2 text-xs text-accent mb-2"><i class="fa-solid fa-calendar"></i> May 30, 2025</div>
+        <h4 class="font-semibold mb-2">Clean Architecture for Android</h4>
+        <p class="text-xs text-gray-500 mb-3">ID: 1748606406607 · Programming Hub</p>
+        <a href="#" class="text-primary text-sm font-semibold hover:underline">✓ Verify Certificate ↗</a>
+      </div>
+      <div class="cert-card glass rounded-2xl p-5 fade-up hover:-translate-y-1 transition-all" data-category="Business" data-name="google developers launchpad">
+        <div class="flex items-center gap-2 text-xs text-accent mb-2"><i class="fa-solid fa-calendar"></i> Jun 22, 2025</div>
+        <h4 class="font-semibold mb-2">Google Developers Launchpad</h4>
+        <p class="text-xs text-gray-500 mb-3">ID: 1750614006608 · Google</p>
+        <a href="#" class="text-primary text-sm font-semibold hover:underline">✓ Verify Certificate ↗</a>
+      </div>
+    </div>
+
+    <div id="noCertResults" class="hidden text-center text-gray-500 py-10 fade-up">
+      <i class="fa-solid fa-inbox text-3xl mb-3"></i>
+      <p>No certificates match your search. Try another keyword!</p>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       MY APP COLLECTION — Masonry / Pinterest-style Grid
+       ============================================================ -->
+  <section id="projects" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Portfolio</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-2">My Created App Collection</h2>
+    <p class="fade-up text-gray-400 mb-10 max-w-2xl">16 hand-built applications spanning dashboards, games, e-commerce, POS systems, and real-time tools — click any card to view the live repo.</p>
+
+    <!-- Masonry Grid (CSS columns based) -->
+    <div class="masonry-grid columns-1 sm:columns-2 lg:columns-4 gap-5 [&>*]:mb-5 [&>*]:break-inside-avoid">
+
+      <a href="https://github.com/moekyawaung-tech/social-dashboard" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795856/copilot_image_1778795675037_heh9xk.png" alt="Social Dashboard app" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <span class="text-xs text-accent font-semibold">NEW ✨</span>
+          <h4 class="font-semibold">📱 Social Dashboard</h4>
+          <p class="text-xs text-gray-400 mt-1">Real-time analytics UI with Compose charts</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/moekyawaung-tech/pwa-app" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795822/preview_dzhqvv.webp" alt="PWA App" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">📱 PWA App</h4>
+          <p class="text-xs text-gray-400 mt-1">Installable progressive web app shell</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/Moekyawaung-cyber/My_postcode-My-web_project" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795856/copilot_image_1778794626112_ega7kk.png" alt="Admin Dashboard" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">📊 Admin Dashboard</h4>
+          <p class="text-xs text-gray-400 mt-1">Postcode + web project admin panel</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/Moekyawaung-cyber/Hospital-Lists" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795856/copilot_image_1778794430377_n7xlmz.png" alt="Stock Market app" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">📈 Stock Market</h4>
+          <p class="text-xs text-gray-400 mt-1">Live market tracking + hospital list data UI</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/moekyawaung-tech/game-collection" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795856/copilot_image_1778795000722_eo96gj.png" alt="Game Collection" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">🎮 Game Collection</h4>
+          <p class="text-xs text-gray-400 mt-1">Multi-game arcade bundle</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/moekyawaung-tech/video-player" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <video src="https://res.cloudinary.com/dye5qpwii/video/upload/v1779031596/Javier_Pardina_10_wttux4.mp4" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" autoplay muted loop playsinline></video>
+        <div class="p-4">
+          <span class="text-xs text-accent font-semibold">LEGEND! 🎯</span>
+          <h4 class="font-semibold">🎯 Video Player</h4>
+          <p class="text-xs text-gray-400 mt-1">Custom Exoplayer-based media player</p>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_12_iv8kpm.webp" alt="Music Player app" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">🎵 Music Player</h4>
+          <p class="text-xs text-gray-400 mt-1">MediaPlayer + background service audio app</p>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_3_zqrhhr.webp" alt="Chat App" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">💬 Chat App</h4>
+          <p class="text-xs text-gray-400 mt-1">Firebase Firestore real-time messaging</p>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1779052645/2153-fireworks-composer_gm3e0h.jpg" alt="World Cup app" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">⚽ World Cup</h4>
+          <p class="text-xs text-gray-400 mt-1">Live scores + fixtures tracker</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/moekyawaung-tech/POS-Ultimate-Pro-Max" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795847/copilot_image_1778795115579_acfm5j.png" alt="E-commerce / POS app" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">🛒 E-commerce (POS Ultimate Pro Max)</h4>
+          <p class="text-xs text-gray-400 mt-1">Full POS system with inventory + billing</p>
+        </div>
+      </a>
+
+      <a href="https://moekyawaungmybio.lovable.app/" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778747384/image-1_1_khsx9s.png" alt="Portfolio app" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">💼 Portfolio (Lovable)</h4>
+          <p class="text-xs text-gray-400 mt-1">Interactive bio + resume web app</p>
+        </div>
+      </a>
+
+      <a href="#" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778747384/image-1_f6zlmk.jpg" alt="Money Tracker app" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">💰 Money Tracker</h4>
+          <p class="text-xs text-gray-400 mt-1">Room-based budgeting + expense charts</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/moekyawaung-tech/Weather-app" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778747384/image_1_buwgls.png" alt="Weather App" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">🌤️ Weather</h4>
+          <p class="text-xs text-gray-400 mt-1">Retrofit-powered forecast app w/ animations</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/moekyawaung-tech/casino-app" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778747391/image_mplr5r.png" alt="Crypto app" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">💸 Crypto</h4>
+          <p class="text-xs text-gray-400 mt-1">Live crypto price tracker + portfolio sim</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/moekyawaung-tech/javascript-todo" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763532/MKA_11_jbijtv.webp" alt="Todo App" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">📝 Todo</h4>
+          <p class="text-xs text-gray-400 mt-1">Room + WorkManager reminders todo app</p>
+        </div>
+      </a>
+
+      <a href="https://github.com/moekyawaung-tech/Daily-planner-app" target="_blank" rel="noreferrer" class="app-card block glass rounded-2xl overflow-hidden fade-up group cursor-pointer">
+        <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763532/MKA_13_i4bao3.webp" alt="Daily Planner app" class="w-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+        <div class="p-4">
+          <h4 class="font-semibold">📅 Daily Planner</h4>
+          <p class="text-xs text-gray-400 mt-1">Task scheduling with local notifications</p>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       FEATURED PROJECT — PulseSync Spotlight
+       ============================================================ -->
+  <section class="section text-white">
+    <div class="glass-strong rounded-3xl p-8 lg:p-12 fade-up relative overflow-hidden">
+      <div class="absolute -top-20 -right-20 w-72 h-72 bg-primary/30 rounded-full blur-3xl"></div>
+      <div class="relative z-10 grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <span class="inline-block bg-gradient-to-r from-primary to-secondary text-xs font-bold px-4 py-1.5 rounded-full mb-4">🔥 FEATURED PROJECT</span>
+          <h3 class="font-display font-bold text-3xl mb-4">PulseSync — Real-time Sync Platform</h3>
+          <p class="text-gray-300 leading-relaxed mb-6">Advanced multi-module Android application demonstrating senior-level architecture, Firebase real-time backend, offline-first design with Room + WorkManager sync, and a full CI/CD pipeline via GitHub Actions — from lint to signed release APK.</p>
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="glass px-3 py-1 rounded-full text-xs">Kotlin</span>
+            <span class="glass px-3 py-1 rounded-full text-xs">Clean Architecture</span>
+            <span class="glass px-3 py-1 rounded-full text-xs">Firebase</span>
+            <span class="glass px-3 py-1 rounded-full text-xs">Offline-First</span>
+            <span class="glass px-3 py-1 rounded-full text-xs">GitHub Actions CI/CD</span>
+          </div>
+          <a href="https://github.com/Dev-moe-kyawaung/pulsesync-android" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary px-6 py-3 rounded-full font-semibold hover:scale-105 transition-transform">
+            <i class="fa-brands fa-github"></i> View Repository
+          </a>
+        </div>
+        <div class="relative">
+          <video src="https://res.cloudinary.com/dye5qpwii/video/upload/v1779052711/Javier_Black-Dark-Ring.mp4" class="rounded-2xl w-full shadow-2xl" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       GITHUB ACCOUNTS COLLECTION — 43 Profiles
+       ============================================================ -->
+  <section id="github" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Developer Network</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-2">GitHub Accounts Collection</h2>
+    <p class="fade-up text-gray-400 mb-8 max-w-2xl">A network of 43 GitHub Pages profiles — organized by specialization, region, and project focus. Each one showcases a different facet of my development work.</p>
+
+    <div class="fade-up relative max-w-xl mb-8">
+      <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+      <input type="text" id="githubSearch" onkeyup="filterList('githubSearch','githubGrid','.gh-card')" placeholder="Search GitHub profiles..."
+        class="w-full glass rounded-full pl-11 pr-5 py-3 text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-500">
+    </div>
+
+    <div id="githubGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <!-- Generated 43 GitHub profile cards -->
+      <a href="https://moekyawaung-china.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-china</span></a>
+      <a href="https://moekyawaung-developer.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-developer</span></a>
+      <a href="https://moekyawaungvivov30pro-design.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaungvivov30pro-design</span></a>
+      <a href="https://moekyaw-aung-mm.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyaw-aung-mm</span></a>
+      <a href="https://moekyawaung-mk.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-mk</span></a>
+      <a href="https://moekyawaung-microsoft.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-microsoft</span></a>
+      <a href="https://moekyawaung-cyber.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-cyber</span></a>
+      <a href="https://moekyawaung-bangkok.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-bangkok</span></a>
+      <a href="https://moekyawaung-micro.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-micro</span></a>
+      <a href="https://moekyawaungmka2032-boop.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaungmka2032-boop</span></a>
+      <a href="https://moekyawaung-dev-mm.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-dev-mm</span></a>
+      <a href="https://moekyaw-developer.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyaw-developer</span></a>
+      <a href="https://moekyawaung.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up bg-primary/10"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate font-semibold">moekyawaung ⭐ main</span></a>
+      <a href="https://Moekyawaung-mm.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung-mm</span></a>
+      <a href="https://moekyawaung-tech.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up bg-primary/10"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate font-semibold">moekyawaung-tech ⭐ apps</span></a>
+      <a href="https://moekyawaung-hack.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-hack</span></a>
+      <a href="https://moekyawaung-graduate.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-graduate</span></a>
+      <a href="https://Moekyawaung-Linux.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung-Linux</span></a>
+      <a href="https://Moekyawaung-coder.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung-coder</span></a>
+      <a href="https://moekyawaung-designer.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-designer</span></a>
+      <a href="https://Moekyawaung2026.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung2026</span></a>
+      <a href="https://moekyawaungmka2034-coder.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaungmka2034-coder</span></a>
+      <a href="https://Moekyawaung-mk.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung-mk</span></a>
+      <a href="https://Moekyawaung-cyber.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung-cyber</span></a>
+      <a href="https://moekyawaung-web.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-web</span></a>
+      <a href="https://moekyawaung-micro.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-micro (2)</span></a>
+      <a href="https://moekyawaungvivov30pro-design.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">vivov30pro-design (2)</span></a>
+      <a href="https://Moekyawaung-dev.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung-dev</span></a>
+      <a href="https://Moekyawaung-cyber.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung-cyber (2)</span></a>
+      <a href="https://moekyawaung-china.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-china (2)</span></a>
+      <a href="https://moekyawaungmka2032-boop.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">mka2032-boop (2)</span></a>
+      <a href="https://MoeKyawAung-code.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">MoeKyawAung-code</span></a>
+      <a href="https://moekyawaung-creator.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-creator</span></a>
+      <a href="https://moekyawaung-webdeveloper.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-webdeveloper</span></a>
+      <a href="https://Moekyawaung-co.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung-co</span></a>
+      <a href="https://moekyawaung-edu.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-edu</span></a>
+      <a href="https://moekyawaung-senior.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up bg-accent/10"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate font-semibold">moekyawaung-senior ⭐</span></a>
+      <a href="https://Moekyawaung-Development.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moekyawaung-Development</span></a>
+      <a href="https://moekyawaung-google.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">moekyawaung-google</span></a>
+      <a href="https://Moe-KyawAung.github.io/" target="_blank" rel="noreferrer" class="gh-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-lg"></i><span class="text-sm truncate">Moe-KyawAung</span></a>
+    </div>
+    <p id="noGithubResults" class="hidden text-center text-gray-500 py-8 fade-up">No profiles match your search.</p>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       LOVABLE WPA COLLECTION — 38 Links
+       ============================================================ -->
+  <section id="lovable" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Rapid Prototyping</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-2">Lovable WPA Links Collection</h2>
+    <p class="fade-up text-gray-400 mb-8 max-w-2xl">Progressive web app prototypes and CV/portfolio experiments built with Lovable — used for rapid UI/UX iteration before native Android implementation.</p>
+
+    <div class="fade-up relative max-w-xl mb-8">
+      <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+      <input type="text" id="lovableSearch" onkeyup="filterList('lovableSearch','lovableGrid','.lv-card')" placeholder="Search Lovable apps..."
+        class="w-full glass rounded-full pl-11 pr-5 py-3 text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-500">
+    </div>
+
+    <div id="lovableGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <a href="https://happy-cv-creator.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-heart text-pink-400"></i><span class="text-sm truncate">happy-cv-creator</span></a>
+      <a href="https://moekyawaung.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up bg-secondary/10"><i class="fa-solid fa-star text-accent"></i><span class="text-sm truncate font-semibold">moekyawaung ⭐ main</span></a>
+      <a href="https://moekyawaungmybio.lovable.app/" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-id-card"></i><span class="text-sm truncate">moekyawaungmybio</span></a>
+      <a href="https://the-cv-palette.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-palette"></i><span class="text-sm truncate">the-cv-palette</span></a>
+      <a href="https://moekyaw-url.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-link"></i><span class="text-sm truncate">moekyaw-url</span></a>
+      <a href="https://moekyawaung-dev.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-code"></i><span class="text-sm truncate">moekyawaung-dev</span></a>
+      <a href="https://moe-kyaw-aung.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-user"></i><span class="text-sm truncate">moe-kyaw-aung</span></a>
+      <a href="https://moekyawaungmka.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-cube"></i><span class="text-sm truncate">moekyawaungmka</span></a>
+      <a href="https://moekyaw.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-bolt"></i><span class="text-sm truncate">moekyaw</span></a>
+      <a href="https://m-moekyaw.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-m"></i><span class="text-sm truncate">m-moekyaw</span></a>
+      <a href="https://dev-moekyawaung.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-terminal"></i><span class="text-sm truncate">dev-moekyawaung</span></a>
+      <a href="https://dev-moekyaw.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-laptop-code"></i><span class="text-sm truncate">dev-moekyaw</span></a>
+      <a href="https://cv-beacon.lovable.app/" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-tower-broadcast"></i><span class="text-sm truncate">cv-beacon</span></a>
+      <a href="https://preview--moekyawaungmkamka.lovable.app/" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-eye"></i><span class="text-sm truncate">preview-mkamka</span></a>
+      <a href="https://moekyawaungmkamka.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-cubes"></i><span class="text-sm truncate">moekyawaungmkamka</span></a>
+      <a href="https://pixel-perfect-snap-39.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-camera"></i><span class="text-sm truncate">pixel-perfect-snap-39</span></a>
+      <a href="https://devmoekyaw.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-code-branch"></i><span class="text-sm truncate">devmoekyaw</span></a>
+      <a href="https://profile-persuasion-hub.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-hub"></i><span class="text-sm truncate">profile-persuasion-hub</span></a>
+      <a href="https://friendly-haven-io.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-house"></i><span class="text-sm truncate">friendly-haven-io</span></a>
+      <a href="https://moekyawaung-github.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-brands fa-github"></i><span class="text-sm truncate">moekyawaung-github</span></a>
+      <a href="https://moekyawgithub.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-brands fa-github"></i><span class="text-sm truncate">moekyawgithub</span></a>
+      <a href="https://joy-codify-life.lovable.app/" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-face-smile"></i><span class="text-sm truncate">joy-codify-life</span></a>
+      <a href="https://mmoekyaw.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-signature"></i><span class="text-sm truncate">mmoekyaw</span></a>
+      <a href="https://color-code-chronicles.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-swatchbook"></i><span class="text-sm truncate">color-code-chronicles</span></a>
+      <a href="https://moekyawaung-free.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-gift"></i><span class="text-sm truncate">moekyawaung-free</span></a>
+      <a href="https://app-skill-gallery.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-images"></i><span class="text-sm truncate">app-skill-gallery</span></a>
+      <a href="https://spark-coach-create.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-fire-flame-curved"></i><span class="text-sm truncate">spark-coach-create</span></a>
+      <a href="https://moekyaw-mk.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-mug-hot"></i><span class="text-sm truncate">moekyaw-mk</span></a>
+      <a href="https://moekyawaung-myanmar.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-flag"></i><span class="text-sm truncate">moekyawaung-myanmar 🇲🇲</span></a>
+      <a href="https://mmoe.lovable.app" target="_blank" rel="noreferrer" class="lv-card glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.03] hover:text-secondary transition-all fade-up"><i class="fa-solid fa-bolt-lightning"></i><span class="text-sm truncate">mmoe</span></a>
+    </div>
+    <p id="noLovableResults" class="hidden text-center text-gray-500 py-8 fade-up">No apps match your search.</p>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       ORGANIZATIONS / AFFILIATIONS SECTION
+       ============================================================ -->
+  <section id="organizations" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Affiliations</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-8">Organizations &amp; Communities</h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="glass rounded-2xl p-6 text-center fade-up hover:-translate-y-1 transition-all">
+        <i class="fa-brands fa-google text-3xl text-secondary mb-3"></i>
+        <h4 class="font-semibold mb-1">Google Developers</h4>
+        <p class="text-xs text-gray-400">Launchpad Program Alumni</p>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center fade-up hover:-translate-y-1 transition-all">
+        <i class="fa-brands fa-android text-3xl text-green-400 mb-3"></i>
+        <h4 class="font-semibold mb-1">Android Myanmar Devs</h4>
+        <p class="text-xs text-gray-400">Community Contributor</p>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center fade-up hover:-translate-y-1 transition-all">
+        <i class="fa-brands fa-github text-3xl text-primary mb-3"></i>
+        <h4 class="font-semibold mb-1">Open Source</h4>
+        <p class="text-xs text-gray-400">122+ Public Repositories</p>
+      </div>
+      <div class="glass rounded-2xl p-6 text-center fade-up hover:-translate-y-1 transition-all">
+        <i class="fa-solid fa-shield-halved text-3xl text-accent mb-3"></i>
+        <h4 class="font-semibold mb-1">Cybersecurity Guild</h4>
+        <p class="text-xs text-gray-400">Ethical Hacking Practitioner</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       EMAIL COLLECTION SECTION
+       ============================================================ -->
+  <section id="emails" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Reach Me</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-2">Email Collection</h2>
+    <p class="fade-up text-gray-400 mb-8 max-w-2xl">Multiple professional inboxes organized by purpose — feel free to reach out on whichever fits your inquiry best.</p>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <a href="mailto:moekyawaung@programmer.net" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@programmer.net</span></a>
+      <a href="mailto:moekyawaung@collector.org" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@collector.org</span></a>
+      <a href="mailto:moekyawaung@technologist.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@technologist.com</span></a>
+      <a href="mailto:moekyawaung@techie.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@techie.com</span></a>
+      <a href="mailto:moekyawaung@graphic-designer.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@graphic-designer.com</span></a>
+      <a href="mailto:moekyawaung@cybergal.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-shield-halved text-accent"></i><span class="text-sm truncate">moekyawaung@cybergal.com</span></a>
+      <a href="mailto:moekyawaung@webname.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@webname.com</span></a>
+      <a href="mailto:moekyawaung@hackermail.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-user-secret text-accent"></i><span class="text-sm truncate">moekyawaung@hackermail.com</span></a>
+      <a href="mailto:moekyawaung@graduate.org" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-graduation-cap text-secondary"></i><span class="text-sm truncate">moekyawaung@graduate.org</span></a>
+      <a href="mailto:moekyawaung@engineer.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-gear text-secondary"></i><span class="text-sm truncate">moekyawaung@engineer.com</span></a>
+      <a href="mailto:moekyawaung@asia.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-globe-asia text-secondary"></i><span class="text-sm truncate">moekyawaung@asia.com</span></a>
+      <a href="mailto:moekyawaung@contractor.net" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@contractor.net</span></a>
+      <a href="mailto:moekyawaung@linuxmail.org" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-brands fa-linux text-yellow-400"></i><span class="text-sm truncate">moekyawaung@linuxmail.org</span></a>
+      <a href="mailto:moekyawaung@usa.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@usa.com</span></a>
+      <a href="mailto:moekyawaung@europe.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@europe.com</span></a>
+      <a href="mailto:moekyawaung@mail.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@mail.com</span></a>
+      <a href="mailto:moekyawaung@iname.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@iname.com</span></a>
+      <a href="mailto:moekyawaung@socialogist.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@socialogist.com</span></a>
+      <a href="mailto:moekyawaung@secretary.net" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@secretary.net</span></a>
+      <a href="mailto:moekyawaung@publicist.com" class="glass rounded-xl px-4 py-3 flex items-center gap-3 hover:scale-[1.02] hover:text-primary transition-all fade-up"><i class="fa-solid fa-envelope text-primary"></i><span class="text-sm truncate">moekyawaung@publicist.com</span></a>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       SOCIAL ICONS — 16 from Gravatar
+       ============================================================ -->
+  <section id="social" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Connect</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-2">Social &amp; Professional Profiles</h2>
+    <p class="fade-up text-gray-400 mb-8 max-w-2xl">Verified accounts linked via <a href="https://gravatar.com/moekyawaung13721" target="_blank" rel="noreferrer" class="text-secondary hover:underline">Gravatar</a> — GitHub, LinkedIn, YouTube, Bluesky, and more.</p>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+      <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-github text-2xl"></i><span class="text-[10px]">GitHub</span></a>
+      <a href="https://gravatar.com/moekyawaung13721" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-solid fa-id-badge text-2xl"></i><span class="text-[10px]">Gravatar</span></a>
+      <a href="https://www.linkedin.com/in/moe-kyaw-aung-2653093a1" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-linkedin text-2xl"></i><span class="text-[10px]">LinkedIn</span></a>
+      <a href="https://www.youtube.com/channel/UCuTXUguZb4xjeL2nX8WJG" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-youtube text-2xl"></i><span class="text-[10px]">YouTube</span></a>
+      <a href="https://www.tumblr.com/moekyawaung" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-tumblr text-2xl"></i><span class="text-[10px]">Tumblr</span></a>
+      <a href="https://www.flickr.com/people/204037451@N06" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-flickr text-2xl"></i><span class="text-[10px]">Flickr</span></a>
+      <a href="https://bsky.app/profile/moekyawaung96.bsky.social" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-bluesky text-2xl"></i><span class="text-[10px]">Bluesky</span></a>
+      <a href="https://vimeo.com/user252414232" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-vimeo text-2xl"></i><span class="text-[10px]">Vimeo</span></a>
+      <a href="https://moekyawaung.slack.com/" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-slack text-2xl"></i><span class="text-[10px]">Slack</span></a>
+      <a href="https://www.paypal.com/paypalme/my/profile" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-paypal text-2xl"></i><span class="text-[10px]">PayPal</span></a>
+      <a href="http://moekyawaung2026.strikingly.com" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-solid fa-bolt text-2xl"></i><span class="text-[10px]">Strikingly</span></a>
+      <a href="https://play.google.com/store/apps/dev?id=MoeKyawAung" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-google-play text-2xl"></i><span class="text-[10px]">Play Store</span></a>
+      <a href="https://t.me/moekyawaung" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-telegram text-2xl"></i><span class="text-[10px]">Telegram</span></a>
+      <a href="https://www.instagram.com/moekyawaung" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-instagram text-2xl"></i><span class="text-[10px]">Instagram</span></a>
+      <a href="https://www.reddit.com/user/moekyawaung" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-reddit text-2xl"></i><span class="text-[10px]">Reddit</span></a>
+      <a href="https://www.pinterest.com/moekyawaung" target="_blank" rel="noreferrer" class="glass rounded-2xl p-4 flex flex-col items-center gap-2 hover:scale-110 hover:text-primary transition-all fade-up"><i class="fa-brands fa-pinterest text-2xl"></i><span class="text-[10px]">Pinterest</span></a>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       TESTIMONIALS CAROUSEL
+       ============================================================ -->
+  <section class="section text-white overflow-hidden">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Client Feedback</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-10">What People Say</h2>
+
+    <div class="relative max-w-3xl mx-auto">
+      <div id="testimonialTrack" class="flex transition-transform duration-500 ease-out">
+        <!-- ✏️ Edit these testimonials with real client feedback -->
+        <div class="min-w-full px-2">
+          <div class="glass-strong rounded-3xl p-8 text-center fade-up">
+            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_12_iv8kpm.webp" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover ring-2 ring-primary" alt="Client avatar">
+            <p class="text-gray-300 italic mb-4">"Moe delivered our Android rewrite in Jetpack Compose ahead of schedule — clean architecture, well-tested, and genuinely a pleasure to collaborate with. Highly recommended."</p>
+            <div class="font-semibold">Sarah Chen</div>
+            <div class="text-xs text-gray-500">Product Lead, FinTech Startup</div>
+            <div class="text-accent mt-2">★★★★★</div>
+          </div>
+        </div>
+        <div class="min-w-full px-2">
+          <div class="glass-strong rounded-3xl p-8 text-center fade-up">
+            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763531/MKA_3_zqrhhr.webp" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover ring-2 ring-secondary" alt="Client avatar">
+            <p class="text-gray-300 italic mb-4">"Excellent Firebase integration work and rock-solid CI/CD setup. Our release cycle went from days to minutes. Moe's attention to security best practices stood out."</p>
+            <div class="font-semibold">David Okafor</div>
+            <div class="text-xs text-gray-500">CTO, Retail POS Solutions</div>
+            <div class="text-accent mt-2">★★★★★</div>
+          </div>
+        </div>
+        <div class="min-w-full px-2">
+          <div class="glass-strong rounded-3xl p-8 text-center fade-up">
+            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763532/MKA_11_jbijtv.webp" class="w-16 h-16 rounded-full mx-auto mb-4 object-cover ring-2 ring-accent" alt="Client avatar">
+            <p class="text-gray-300 italic mb-4">"Twelve years of experience really shows — from Room caching strategy to modular Gradle setup. Communication in both English and Burmese made collaboration effortless."</p>
+            <div class="font-semibold">Htet Aung</div>
+            <div class="text-xs text-gray-500">Founder, Myanmar EdTech App</div>
+            <div class="text-accent mt-2">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <button onclick="moveTestimonial(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 glass w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 transition-all" aria-label="Previous testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+      <button onclick="moveTestimonial(1)" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 glass w-11 h-11 rounded-full flex items-center justify-center hover:scale-110 transition-all" aria-label="Next testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="flex justify-center gap-2 mt-6" id="testimonialDots"></div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       PRICING TABLE
+       ============================================================ -->
+  <section id="pricing" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Services</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-10">Freelance Packages</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="glass rounded-3xl p-8 fade-up hover:-translate-y-2 transition-all">
+        <h3 class="font-display font-bold text-xl mb-2">Starter</h3>
+        <div class="text-3xl font-bold mb-4">$800<span class="text-sm text-gray-400 font-normal">/project</span></div>
+        <ul class="space-y-3 text-sm text-gray-400 mb-8">
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Single-screen MVP app</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Kotlin + Jetpack Compose</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Basic Firebase Auth</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>2 weeks delivery</li>
+        </ul>
+        <a href="#contact" class="block text-center glass px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all">Get Started</a>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 fade-up hover:-translate-y-2 transition-all relative border-2 border-primary scale-105">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
+        <h3 class="font-display font-bold text-xl mb-2">Professional</h3>
+        <div class="text-3xl font-bold mb-4">$2,500<span class="text-sm text-gray-400 font-normal">/project</span></div>
+        <ul class="space-y-3 text-sm text-gray-400 mb-8">
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Full-featured Android app</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Clean Architecture + MVVM</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Firebase full suite + REST API</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>CI/CD pipeline setup</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>4-6 weeks delivery</li>
+        </ul>
+        <a href="#contact" class="block text-center bg-gradient-to-r from-primary to-secondary px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all">Get Started</a>
+      </div>
+
+      <div class="glass rounded-3xl p-8 fade-up hover:-translate-y-2 transition-all">
+        <h3 class="font-display font-bold text-xl mb-2">Enterprise</h3>
+        <div class="text-3xl font-bold mb-4">Custom</div>
+        <ul class="space-y-3 text-sm text-gray-400 mb-8">
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Multi-module KMM architecture</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Team mentoring & code review</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Security audit + hardening</li>
+          <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Long-term support contract</li>
+        </ul>
+        <a href="#contact" class="block text-center glass px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       FAQ ACCORDION
+       ============================================================ -->
+  <section id="faq" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Questions</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-10">Frequently Asked Questions</h2>
+
+    <div class="max-w-3xl mx-auto space-y-3" id="faqAccordion">
+      <div class="faq-item glass rounded-2xl overflow-hidden fade-up">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold" onclick="toggleFaq(this)">
+          What is your typical project turnaround time?
+          <i class="fa-solid fa-chevron-down transition-transform"></i>
+        </button>
+        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+          <p class="px-6 pb-4 text-gray-400 text-sm">Depends on scope — an MVP typically takes 2-3 weeks, while full production apps with Firebase and CI/CD range from 4-8 weeks. I always provide a detailed timeline after the initial scoping call.</p>
+        </div>
+      </div>
+      <div class="faq-item glass rounded-2xl overflow-hidden fade-up">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold" onclick="toggleFaq(this)">
+          Do you work with Kotlin Multiplatform (KMM)?
+          <i class="fa-solid fa-chevron-down transition-transform"></i>
+        </button>
+        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+          <p class="px-6 pb-4 text-gray-400 text-sm">Yes! I actively build shared business logic with KMM for teams targeting both Android and iOS, keeping platform-specific UI native while sharing networking, caching, and domain logic.</p>
+        </div>
+      </div>
+      <div class="faq-item glass rounded-2xl overflow-hidden fade-up">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold" onclick="toggleFaq(this)">
+          Can you take over an existing legacy Android codebase?
+          <i class="fa-solid fa-chevron-down transition-transform"></i>
+        </button>
+        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+          <p class="px-6 pb-4 text-gray-400 text-sm">Absolutely — I regularly perform legacy migrations (Java → Kotlin, XML Views → Compose, LiveData → Flow) with an incremental strategy that avoids disrupting your release cadence.</p>
+        </div>
+      </div>
+      <div class="faq-item glass rounded-2xl overflow-hidden fade-up">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold" onclick="toggleFaq(this)">
+          Do you provide post-launch support?
+          <i class="fa-solid fa-chevron-down transition-transform"></i>
+        </button>
+        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+          <p class="px-6 pb-4 text-gray-400 text-sm">Yes, all Professional and Enterprise packages include a support window (30-90 days) covering bug fixes, Play Store release management, and crash monitoring via Firebase Crashlytics.</p>
+        </div>
+      </div>
+      <div class="faq-item glass rounded-2xl overflow-hidden fade-up">
+        <button class="faq-question w-full text-left px-6 py-4 flex justify-between items-center font-semibold" onclick="toggleFaq(this)">
+          Can we communicate in Burmese (မြန်မာဘာသာ)?
+          <i class="fa-solid fa-chevron-down transition-transform"></i>
+        </button>
+        <div class="faq-answer max-h-0 overflow-hidden transition-all duration-300">
+          <p class="px-6 pb-4 text-gray-400 text-sm">လုံးဝ ဖြစ်နိုင်ပါသည်! ကျွန်တော်သည် မြန်မာနှင့် အင်္ဂလိပ် နှစ်ဘာသာလုံးဖြင့် ကျွမ်းကျင်စွာ ဆက်သွယ်နိုင်ပါသည်။ Yes, absolutely — I'm fully fluent in both Burmese and English for smooth project communication.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep"></div>
+
+  <!-- ============================================================
+       CONTACT SECTION — Validated Form + Info
+       ============================================================ -->
+  <section id="contact" class="section text-white">
+    <div class="s-label fade-up text-secondary font-semibold text-sm tracking-widest uppercase mb-3">✦ Get In Touch</div>
+    <h2 class="s-title fade-up font-display font-bold text-3xl sm:text-4xl mb-2">Let's Build Something Great</h2>
+    <p class="fade-up text-gray-400 mb-10 max-w-2xl">Have a project in mind? Fill out the form below or reach me directly — I typically respond within 24 hours.</p>
+
+    <div class="grid lg:grid-cols-5 gap-10">
+      <!-- Contact Form -->
+      <form id="contactForm" class="lg:col-span-3 glass-strong rounded-3xl p-8 space-y-5 fade-up" novalidate>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label for="cf-name" class="block text-sm font-medium mb-2">Full Name</label>
+            <input type="text" id="cf-name" name="name" required
+              class="w-full glass rounded-xl px-4 py-3 bg-transparent text-sm focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-500"
+              placeholder="Your name">
+            <p class="error-msg text-red-400 text-xs mt-1 hidden">Please enter your name.</p>
+          </div>
+          <div>
+            <label for="cf-email" class="block text-sm font-medium mb-2">Email Address</label>
+            <input type="email" id="cf-email" name="email" required
+              class="w-full glass rounded-xl px-4 py-3 bg-transparent text-sm focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-500"
+              placeholder="you@example.com">
+            <p class="error-msg text-red-400 text-xs mt-1 hidden">Please enter a valid email.</p>
+          </div>
+        </div>
+        <div>
+          <label for="cf-subject" class="block text-sm font-medium mb-2">Subject</label>
+          <input type="text" id="cf-subject" name="subject" required
+            class="w-full glass rounded-xl px-4 py-3 bg-transparent text-sm focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-500"
+            placeholder="Project inquiry, collaboration, etc.">
+          <p class="error-msg text-red-400 text-xs mt-1 hidden">Please enter a subject.</p>
+        </div>
+        <div>
+          <label for="cf-message" class="block text-sm font-medium mb-2">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required
+            class="w-full glass rounded-xl px-4 py-3 bg-transparent text-sm focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-500 resize-none"
+            placeholder="Tell me about your project..."></textarea>
+          <p class="error-msg text-red-400 text-xs mt-1 hidden">Please enter a message (min 10 characters).</p>
+        </div>
+        <button type="submit" class="w-full bg-gradient-to-r from-primary to-secondary py-3.5 rounded-xl font-semibold hover:scale-[1.02] transition-all flex items-center justify-center gap-2">
+          <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+        <div id="formSuccess" class="hidden text-center text-green-400 text-sm font-medium">
+          <i class="fa-solid fa-circle-check mr-1"></i> Message sent successfully! I'll get back to you soon.
+        </div>
+      </form>
+
+      <!-- Contact Info -->
+      <div class="lg:col-span-2 space-y-4">
+        <div class="glass rounded-2xl p-5 flex items-center gap-4 fade-up">
+          <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <div class="text-xs text-gray-400">Phone / WhatsApp</div>
+            <a href="tel:+95988900889" class="font-semibold hover:text-primary">+95 9 889 000 889</a><br>
+            <a href="tel:+959666000050" class="font-semibold hover:text-primary text-sm">+959 666 000 050</a>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-5 flex items-center gap-4 fade-up">
+          <div class="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-secondary"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <div class="text-xs text-gray-400">Primary Email</div>
+            <a href="mailto:moekyawaung@programmer.net" class="font-semibold hover:text-secondary">moekyawaung@programmer.net</a>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-5 flex items-center gap-4 fade-up">
+          <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <div class="text-xs text-gray-400">Location</div>
+            <span class="font-semibold">Tachileik, Myanmar 🇲🇲 / Bangkok, Thailand 🇹🇭</span>
+          </div>
+        </div>
+        <!-- Google Maps Embed -->
+        <div class="glass rounded-2xl overflow-hidden fade-up h-48">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31026.999999!2d99.9333!3d20.4500!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sTachileik%2C+Myanmar!5e0!3m2!1sen!2s!4v1700000000000"
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Location Map — Tachileik, Myanmar"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============================================================
+       FAT FOOTER — Newsletter + Links + Map + Socials
+       ============================================================ -->
+  <footer class="relative text-white pt-16 pb-8 px-5 lg:px-8 mt-10 glass-strong border-t border-white/10">
+    <div class="max-w-[1400px] mx-auto">
+
+      <!-- Newsletter -->
+      <div class="glass rounded-3xl p-8 mb-12 grid md:grid-cols-2 gap-6 items-center fade-up">
+        <div>
+          <h3 class="font-display font-bold text-2xl mb-2">📬 Stay Updated</h3>
+          <p class="text-gray-400 text-sm">Get notified about new open-source releases, articles, and Android dev tips — no spam, ever.</p>
+        </div>
+        <form id="newsletterForm" class="flex gap-3">
+          <input type="email" id="newsletterEmail" required placeholder="your@email.com"
+            class="flex-1 glass rounded-full px-5 py-3 text-sm bg-transparent focus:outline-none focus:ring-2 focus:ring-primary placeholder-gray-500">
+          <button type="submit" class="bg-gradient-to-r from-primary to-secondary px-6 py-3 rounded-full font-semibold hover:scale-105 transition-all whitespace-nowrap">Subscribe</button>
+        </form>
+        <p id="newsletterSuccess" class="hidden text-green-400 text-sm md:col-span-2">✓ Subscribed successfully! Welcome aboard 🎉</p>
+      </div>
+
+      <!-- Footer Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
+        <div class="lg:col-span-2">
+          <a href="#home" class="flex items-center gap-3 font-display font-bold text-lg mb-4">
+            <img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763535/MKA_25_lbx6fb.webp" alt="logo" class="w-10 h-10 rounded-full object-cover ring-2 ring-primary">
+            Moe Kyaw Aung
+          </a>
+          <p class="text-gray-400 text-sm mb-4 max-w-sm">Senior Android Developer with nearly 12 years of experience building secure, scalable, and user-friendly mobile applications using Kotlin, Jetpack Compose, and Firebase.</p>
+          <div class="flex gap-2">
+            <a href="https://github.com/Dev-moe-kyawaung/" target="_blank" rel="noreferrer" class="glass w-9 h-9 rounded-full flex items-center justify-center hover:text-primary hover:scale-110 transition-all"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/moe-kyaw-aung-2653093a1" target="_blank" rel="noreferrer" class="glass w-9 h-9 rounded-full flex items-center justify-center hover:text-primary hover:scale-110 transition-all"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://t.me/moekyawaung" target="_blank" rel="noreferrer" class="glass w-9 h-9 rounded-full flex items-center justify-center hover:text-primary hover:scale-110 transition-all"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://www.instagram.com/moekyawaung" target="_blank" rel="noreferrer" class="glass w-9 h-9 rounded-full flex items-center justify-center hover:text-primary hover:scale-110 transition-all"><i class="fa-brands fa-instagram"></i></a>
+            <a href="mailto:moekyawaung@programmer.net" class="glass w-9 h-9 rounded-full flex items-center justify-center hover:text-primary hover:scale-110 transition-all"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Navigate</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#about" class="hover:text-primary transition-colors">About</a></li>
+            <li><a href="#skills" class="hover:text-primary transition-colors">Skills</a></li>
+            <li><a href="#certificates" class="hover:text-primary transition-colors">Certificates</a></li>
+            <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Resources</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#github" class="hover:text-primary transition-colors">GitHub Network</a></li>
+            <li><a href="#lovable" class="hover:text-primary transition-colors">Lovable Apps</a></li>
+            <li><a href="#pricing" class="hover:text-primary transition-colors">Pricing</a></li>
+            <li><a href="#faq" class="hover:text-primary transition-colors">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4">Legal</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
+            <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+        <p>© 2025 Moe Kyaw Aung. All rights reserved. Built with 💙 using Kotlin-dev energy.</p>
+        <p>Tachileik 🇲🇲 ↔ Bangkok 🇹🇭</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       BACK TO TOP + STICKY CTA
+       ============================================================ -->
+  <button id="backToTop" class="glass-strong text-white" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+  <a href="#contact" id="stickyCta" class="glass-strong text-white px-5 py-3 rounded-full font-semibold flex items-center gap-2 hover:scale-105 transition-all shadow-lg">
+    <i class="fa-solid fa-comment-dots"></i> <span class="hidden sm:inline">Hire Me</span>
+  </a>
+
+  <!-- ============================================================
+       IMAGE LIGHTBOX MODAL
+       ============================================================ -->
+  <div id="lightbox" class="fixed inset-0 bg-black/90 z-[9998] hidden items-center justify-center p-6">
+    <button id="lightboxClose" class="absolute top-6 right-6 text-white text-2xl hover:text-primary" aria-label="Close lightbox"><i class="fa-solid fa-xmark"></i></button>
+    <img id="lightboxImg" src="" alt="Enlarged view" class="max-w-full max-h-full rounded-xl shadow-2xl">
+  </div>
+
+  <!-- ============================================================
+       JAVASCRIPT — Full Interactive Engine
+       ============================================================ -->
+  <script>
+    /* ============================================================
+       1. PRELOADER
+       ============================================================ */
+    window.addEventListener('load', () => {
+      const preloader = document.getElementById('preloader');
+      setTimeout(() => preloader.classList.add('loaded'), 500);
+    });
+
+    /* ============================================================
+       2. CUSTOM CURSOR
+       ============================================================ */
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursorDot.style.left = mouseX + 'px';
+      cursorDot.style.top = mouseY + 'px';
+    });
+
+    function animateRing() {
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
+      cursorRing.style.left = ringX + 'px';
+      cursorRing.style.top = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    }
+    animateRing();
+
+    document.querySelectorAll('a, button, .skill-chip, input, textarea').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('hovered'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovered'));
+    });
+
+    /* ============================================================
+       3. DARK / LIGHT MODE TOGGLE
+       ============================================================ */
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlEl = document.documentElement;
+
+    function applyTheme(theme) {
+      htmlEl.setAttribute('data-theme', theme);
+      themeIcon.className = theme === 'dark' ? 'fa-solid fa-moon text-sm' : 'fa-solid fa-sun text-sm';
+      localStorage.setItem('mka-theme', theme);
+    }
+    const savedTheme = localStorage.getItem('mka-theme') || 'dark';
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const current = htmlEl.getAttribute('data-theme');
+      applyTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    /* ============================================================
+       4. BURMESE LANGUAGE TOGGLE
+       ============================================================ */
+    const langToggle = document.getElementById('langToggle');
+    langToggle.addEventListener('click', () => {
+      document.body.classList.toggle('lang-mm');
+      localStorage.setItem('mka-lang', document.body.classList.contains('lang-mm') ? 'mm' : 'en');
+    });
+    if (localStorage.getItem('mka-lang') === 'mm') document.body.classList.add('lang-mm');
+
+    /* ============================================================
+       5. HAMBURGER MOBILE MENU
+       ============================================================ */
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      const expanded = hamburgerBtn.classList.contains('active');
+      hamburgerBtn.setAttribute('aria-expanded', expanded);
+    });
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('active');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    /* ============================================================
+       6. NAVBAR SCROLL EFFECT + ACTIVE LINK HIGHLIGHT
+       ============================================================ */
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+
+      // Back to top button visibility
+      document.getElementById('backToTop').classList.toggle('show', window.scrollY > 500);
+
+      // Active nav link
+      let current = '';
+      sections.forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        if (rect.top <= 120 && rect.bottom >= 120) current = sec.id;
+      });
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+      });
+    });
+
+    /* ============================================================
+       7. SCROLL-TRIGGERED FADE-IN ANIMATIONS
+       ============================================================ */
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach((el, i) => {
+      el.style.transitionDelay = (i % 6) * 0.08 + 's';
+      fadeObserver.observe(el);
+    });
+
+    /* ============================================================
+       8. ANIMATED STATISTICS COUNTER
+       ============================================================ */
+    const counters = document.querySelectorAll('.counter-num');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-target'));
+          const suffix = el.getAttribute('data-suffix') || '';
+          let current = 0;
+          const increment = target / 60;
+          const step = () => {
+            current += increment;
+            if (current < target) {
+              el.textContent = Math.floor(current) + suffix;
+              requestAnimationFrame(step);
+            } else {
+              el.textContent = target + suffix;
+            }
+          };
+          step();
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(el => counterObserver.observe(el));
+
+    /* ============================================================
+       9. SVG PROGRESS RINGS ANIMATION
+       ============================================================ */
+    const rings = document.querySelectorAll('.ring-fill');
+    const ringObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const circle = entry.target;
+          const percent = parseFloat(circle.getAttribute('data-percent'));
+          const circumference = 327;
+          const offset = circumference - (percent / 100) * circumference;
+          circle.style.strokeDashoffset = offset;
+          const textEl = circle.parentElement.querySelector('.ring-text');
+          let curr = 0;
+          const step = () => {
+            curr += 1;
+            if (curr <= percent) {
+              textEl.textContent = curr + '%';
+              requestAnimationFrame(step);
+            }
+          };
+          step();
+          ringObserver.unobserve(circle);
+        }
+      });
+    }, { threshold: 0.5 });
+    rings.forEach(r => ringObserver.observe(r));
+
+    /* ============================================================
+       10. PARTICLE CANVAS HERO BACKGROUND
+       ============================================================ */
+    const canvas = document.getElementById('heroCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = canvas.parentElement.offsetWidth;
+      canvas.height = canvas.parentElement.offsetHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() { this.reset(); }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.5 + 0.2;
+      }
+      update() {
+        this.x += this.speedX; this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(99, 102, 241, ${this.opacity})`;
+        ctx.fill();
+      }
+    }
+    for (let i = 0; i < 90; i++) particles.push(new Particle());
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      // Connect nearby particles with lines
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 100) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(6, 182, 212, ${0.15 * (1 - dist / 100)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    /* ============================================================
+       11. PARALLAX SCROLLING EFFECT (depth-based layers)
+       ============================================================ */
+    const parallaxLayers = document.querySelectorAll('.parallax-layer');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      parallaxLayers.forEach(layer => {
+        const speed = parseFloat(layer.getAttribute('data-speed')) || 0.3;
+        layer.style.transform = `translateY(${scrollY * speed}px)`;
+      });
+    });
+
+    /* ============================================================
+       12. CERTIFICATE SEARCH + FILTER
+       ============================================================ */
+    function filterCerts() {
+      const query = document.getElementById('certSearch').value.toLowerCase();
+      const activeCategory = document.querySelector('.filter-btn.active')?.getAttribute('onclick')?.match(/'([^']+)'/g)?.[1]?.replace(/'/g, '') || 'all';
+      const cards = document.querySelectorAll('.cert-card');
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name');
+        const category = card.getAttribute('data-category');
+        const matchesSearch = name.includes(query);
+        const matchesCategory = activeCategory === 'all' || category === activeCategory;
+        const show = matchesSearch && matchesCategory;
+        card.style.display = show ? '' : 'none';
+        if (show) visibleCount++;
+      });
+      document.getElementById('noCertResults').classList.toggle('hidden', visibleCount > 0);
+    }
+
+    function filterCategory(btn, category) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterCerts();
+    }
+
+    /* ============================================================
+       13. GENERIC LIST SEARCH (GitHub / Lovable grids)
+       ============================================================ */
+    function filterList(inputId, gridId, cardSelector) {
+      const query = document.getElementById(inputId).value.toLowerCase();
+      const grid = document.getElementById(gridId);
+      const cards = grid.querySelectorAll(cardSelector);
+      let visible = 0;
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        const show = text.includes(query);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      const noResultsId = gridId === 'githubGrid' ? 'noGithubResults' : 'noLovableResults';
+      const noResultsEl = document.getElementById(noResultsId);
+      if (noResultsEl) noResultsEl.classList.toggle('hidden', visible > 0);
+    }
+
+    /* ============================================================
+       14. TESTIMONIAL CAROUSEL
+       ============================================================ */
+    let testimonialIndex = 0;
+    const testimonialTrack = document.getElementById('testimonialTrack');
+    const testimonialSlides = testimonialTrack.children.length;
+    const dotsContainer = document.getElementById('testimonialDots');
+
+    for (let i = 0; i < testimonialSlides; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'w-2.5 h-2.5 rounded-full transition-all ' + (i === 0 ? 'bg-primary w-6' : 'bg-white/20');
+      dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+      dot.addEventListener('click', () => { testimonialIndex = i; updateTestimonial(); });
+      dotsContainer.appendChild(dot);
+    }
+
+    function updateTestimonial() {
+      testimonialTrack.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+      Array.from(dotsContainer.children).forEach((dot, i) => {
+        dot.className = 'h-2.5 rounded-full transition-all ' + (i === testimonialIndex ? 'bg-primary w-6' : 'bg-white/20 w-2.5');
+      });
+    }
+
+    function moveTestimonial(dir) {
+      testimonialIndex = (testimonialIndex + dir + testimonialSlides) % testimonialSlides;
+      updateTestimonial();
+    }
+    // Auto-rotate every 6 seconds
+    setInterval(() => moveTestimonial(1), 6000);
+
+    /* ============================================================
+       15. FAQ ACCORDION
+       ============================================================ */
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const icon = btn.querySelector('i');
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+
+      // Close all other FAQs (accordion behavior)
+      document.querySelectorAll('.faq-answer').forEach(a => a.style.maxHeight = '0px');
+      document.querySelectorAll('.faq-question i').forEach(i => i.style.transform = 'rotate(0deg)');
+
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        icon.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    /* ============================================================
+       16. CONTACT FORM VALIDATION
+       ============================================================ */
+    const contactForm = document.getElementById('contactForm');
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+
+      const name = document.getElementById('cf-name');
+      const email = document.getElementById('cf-email');
+      const subject = document.getElementById('cf-subject');
+      const message = document.getElementById('cf-message');
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      [name, email, subject, message].forEach(field => {
+        field.nextElementSibling.classList.add('hidden');
+      });
+
+      if (name.value.trim() === '') { name.nextElementSibling.classList.remove('hidden'); isValid = false; }
+      if (!emailRegex.test(email.value.trim())) { email.nextElementSibling.classList.remove('hidden'); isValid = false; }
+      if (subject.value.trim() === '') { subject.nextElementSibling.classList.remove('hidden'); isValid = false; }
+      if (message.value.trim().length < 10) { message.nextElementSibling.classList.remove('hidden'); isValid = false; }
+
+      if (isValid) {
+        document.getElementById('formSuccess').classList.remove('hidden');
+        contactForm.reset();
+        setTimeout(() => document.getElementById('formSuccess').classList.add('hidden'), 5000);
+      }
+    });
+
+    /* ============================================================
+       17. NEWSLETTER FORM
+       ============================================================ */
+    document.getElementById('newsletterForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('newsletterEmail');
+      if (emailInput.value.trim() !== '') {
+        document.getElementById('newsletterSuccess').classList.remove('hidden');
+        emailInput.value = '';
+        setTimeout(() => document.getElementById('newsletterSuccess').classList.add('hidden'), 4000);
+      }
+    });
+
+    /* ============================================================
+       18. IMAGE LIGHTBOX GALLERY
+       ============================================================ */
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    document.querySelectorAll('.app-card img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        lightboxImg.src = img.src;
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+      });
+    });
+    document.getElementById('lightboxClose').addEventListener('click', () => {
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+    });
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+      }
+    });
+
+    /* ============================================================
+       19. BACK TO TOP BUTTON
+       ============================================================ */
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ============================================================
+       20. RESUME DOWNLOAD (placeholder link handler)
+       ============================================================ */
+    document.getElementById('resumeDownload').addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('📄 Resume PDF download will be linked here — replace href with your hosted PDF file (e.g., Cloudinary or GitHub raw link).');
+    });
+
+    /* ============================================================
+       21. LUCIDE ICONS INIT (if used anywhere alongside FA)
+       ============================================================ */
+    if (window.lucide) lucide.createIcons();
+
+    /* ============================================================
+       22. SMOOTH SCROLL FOR ALL ANCHOR LINKS
+       ============================================================ */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId.length > 1) {
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
